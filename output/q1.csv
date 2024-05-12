@@ -1,0 +1,39 @@
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> USE team25_projectdb;
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> 
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> -- Drop the results table if it exists
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> DROP TABLE IF EXISTS q1_results;
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> 
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> -- Create a new external table to store the results
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> CREATE EXTERNAL TABLE q1_results(
+. . . . . . . . . . . . . . . . . . . . . . .>     seatsremaining INT,
+. . . . . . . . . . . . . . . . . . . . . . .>     basefare DECIMAL(10,2)
+. . . . . . . . . . . . . . . . . . . . . . .> )
+. . . . . . . . . . . . . . . . . . . . . . .> ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
+. . . . . . . . . . . . . . . . . . . . . . .> LOCATION 'project/hive/warehouse/q1';
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> 
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> -- Configure Hive to use non-unique column names in resul t set
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> SET hive.resultset.use.unique.column.names = false;
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> 
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> -- Insert data into the results table
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> INSERT INTO q1_results
+. . . . . . . . . . . . . . . . . . . . . . .> SELECT seatsremaining, basefare FROM flights_opt;
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> 
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> -- Retrieve the first 10 entries from the results table t o check
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> SELECT * FROM q1_results LIMIT 10;
++-----------------+-----------+
+| seatsremaining  | basefare  |
++-----------------+-----------+
+| 3               | 571.16    |
+| 7               | 539.53    |
+| 4               | 152.56    |
+| 7               | 394.42    |
+| 7               | 373.97    |
+| 2               | 468.84    |
+| 7               | 380.47    |
+| 2               | 155.35    |
+| 9               | 480.00    |
+| 9               | 480.00    |
++-----------------+-----------+
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> 
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> 
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> 

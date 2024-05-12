@@ -1,0 +1,32 @@
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> USE team25_projectdb;
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> 
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> DROP TABLE IF EXISTS q5_resul ts;
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> DROP TABLE IF EXISTS q5_resul t;
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> CREATE EXTERNAL TABLE q5_resu lts(
+. . . . . . . . . . . . . . . . . . . . . . .> flightdate DATE,
+. . . . . . . . . . . . . . . . . . . . . . .> basefare decimal(10,2))
+. . . . . . . . . . . . . . . . . . . . . . .> ROW FORMAT DELIMITED FIELDS T ERMINATED BY ','
+. . . . . . . . . . . . . . . . . . . . . . .> location 'project/hive/wareho use/q5';
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> 
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> SET hive.resultset.use.unique .column.names = false;
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> 
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> INSERT INTO q5_results
+. . . . . . . . . . . . . . . . . . . . . . .> SELECT flightDate, basefare f rom flights_opt;
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> 
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> SELECT * from q5_results limi t 10;
++-------------+-----------+
+| flightdate  | basefare  |
++-------------+-----------+
+| 2022-06-22  | 571.16    |
+| 2022-06-11  | 539.53    |
+| 2022-06-07  | 152.56    |
+| 2022-06-28  | 394.42    |
+| 2022-06-17  | 373.97    |
+| 2022-06-10  | 468.84    |
+| 2022-06-14  | 380.47    |
+| 2022-07-08  | 155.35    |
+| 2022-07-02  | 480.00    |
+| 2022-07-02  | 480.00    |
++-------------+-----------+
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> 
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> 

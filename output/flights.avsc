@@ -1,0 +1,169 @@
+{
+  "type" : "record",
+  "name" : "flights",
+  "doc" : "Sqoop import of flights",
+  "fields" : [ {
+    "name" : "legid",
+    "type" : [ "null", "string" ],
+    "default" : null,
+    "columnName" : "legid",
+    "sqlType" : "12"
+  }, {
+    "name" : "searchdate",
+    "type" : [ "null", "long" ],
+    "default" : null,
+    "columnName" : "searchdate",
+    "sqlType" : "91"
+  }, {
+    "name" : "flightdate",
+    "type" : [ "null", "long" ],
+    "default" : null,
+    "columnName" : "flightdate",
+    "sqlType" : "91"
+  }, {
+    "name" : "startingairport",
+    "type" : [ "null", "string" ],
+    "default" : null,
+    "columnName" : "startingairport",
+    "sqlType" : "12"
+  }, {
+    "name" : "destinationairport",
+    "type" : [ "null", "string" ],
+    "default" : null,
+    "columnName" : "destinationairport",
+    "sqlType" : "12"
+  }, {
+    "name" : "farebasiscode",
+    "type" : [ "null", "string" ],
+    "default" : null,
+    "columnName" : "farebasiscode",
+    "sqlType" : "12"
+  }, {
+    "name" : "travelduration",
+    "type" : [ "null", "string" ],
+    "default" : null,
+    "columnName" : "travelduration",
+    "sqlType" : "12"
+  }, {
+    "name" : "elapseddays",
+    "type" : [ "null", "int" ],
+    "default" : null,
+    "columnName" : "elapseddays",
+    "sqlType" : "4"
+  }, {
+    "name" : "isbasiceconomy",
+    "type" : [ "null", "boolean" ],
+    "default" : null,
+    "columnName" : "isbasiceconomy",
+    "sqlType" : "-7"
+  }, {
+    "name" : "isrefundable",
+    "type" : [ "null", "boolean" ],
+    "default" : null,
+    "columnName" : "isrefundable",
+    "sqlType" : "-7"
+  }, {
+    "name" : "isnonstop",
+    "type" : [ "null", "boolean" ],
+    "default" : null,
+    "columnName" : "isnonstop",
+    "sqlType" : "-7"
+  }, {
+    "name" : "basefare",
+    "type" : [ "null", "string" ],
+    "default" : null,
+    "columnName" : "basefare",
+    "sqlType" : "2"
+  }, {
+    "name" : "totalfare",
+    "type" : [ "null", "string" ],
+    "default" : null,
+    "columnName" : "totalfare",
+    "sqlType" : "2"
+  }, {
+    "name" : "seatsremaining",
+    "type" : [ "null", "int" ],
+    "default" : null,
+    "columnName" : "seatsremaining",
+    "sqlType" : "4"
+  }, {
+    "name" : "totaltraveldistance",
+    "type" : [ "null", "string" ],
+    "default" : null,
+    "columnName" : "totaltraveldistance",
+    "sqlType" : "12"
+  }, {
+    "name" : "segmentsdeparturetimeepochseconds",
+    "type" : [ "null", "string" ],
+    "default" : null,
+    "columnName" : "segmentsdeparturetimeepochseconds",
+    "sqlType" : "12"
+  }, {
+    "name" : "segmentsdeparturetimeraw",
+    "type" : [ "null", "string" ],
+    "default" : null,
+    "columnName" : "segmentsdeparturetimeraw",
+    "sqlType" : "12"
+  }, {
+    "name" : "segmentsarrivaltimeepochseconds",
+    "type" : [ "null", "string" ],
+    "default" : null,
+    "columnName" : "segmentsarrivaltimeepochseconds",
+    "sqlType" : "12"
+  }, {
+    "name" : "segmentsarrivaltimeraw",
+    "type" : [ "null", "string" ],
+    "default" : null,
+    "columnName" : "segmentsarrivaltimeraw",
+    "sqlType" : "12"
+  }, {
+    "name" : "segmentsarrivalairportcode",
+    "type" : [ "null", "string" ],
+    "default" : null,
+    "columnName" : "segmentsarrivalairportcode",
+    "sqlType" : "12"
+  }, {
+    "name" : "segmentsdepartureairportcode",
+    "type" : [ "null", "string" ],
+    "default" : null,
+    "columnName" : "segmentsdepartureairportcode",
+    "sqlType" : "12"
+  }, {
+    "name" : "segmentsairlinename",
+    "type" : [ "null", "string" ],
+    "default" : null,
+    "columnName" : "segmentsairlinename",
+    "sqlType" : "12"
+  }, {
+    "name" : "segmentsairlinecode",
+    "type" : [ "null", "string" ],
+    "default" : null,
+    "columnName" : "segmentsairlinecode",
+    "sqlType" : "12"
+  }, {
+    "name" : "segmentsequipmentdescription",
+    "type" : [ "null", "string" ],
+    "default" : null,
+    "columnName" : "segmentsequipmentdescription",
+    "sqlType" : "12"
+  }, {
+    "name" : "segmentsdurationinseconds",
+    "type" : [ "null", "string" ],
+    "default" : null,
+    "columnName" : "segmentsdurationinseconds",
+    "sqlType" : "12"
+  }, {
+    "name" : "segmentsdistance",
+    "type" : [ "null", "string" ],
+    "default" : null,
+    "columnName" : "segmentsdistance",
+    "sqlType" : "12"
+  }, {
+    "name" : "segmentscabincode",
+    "type" : [ "null", "string" ],
+    "default" : null,
+    "columnName" : "segmentscabincode",
+    "sqlType" : "12"
+  } ],
+  "tableName" : "flights"
+}

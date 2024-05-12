@@ -1,0 +1,32 @@
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> USE team25_projectdb;
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> 
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> 
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> DROP TABLE IF EXISTS q4_results;
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> CREATE EXTERNAL TABLE q4_results(
+. . . . . . . . . . . . . . . . . . . . . . .> startingAirport STRING,
+. . . . . . . . . . . . . . . . . . . . . . .> destinationAirport STRING)
+. . . . . . . . . . . . . . . . . . . . . . .> ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
+. . . . . . . . . . . . . . . . . . . . . . .> location 'project/hive/warehouse/q4';
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> 
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> SET hive.resultset.use.unique.column.names = false;
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> 
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> INSERT INTO q4_results
+. . . . . . . . . . . . . . . . . . . . . . .> SELECT startingAirport, destinationAirport from flights_o pt;
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> 
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> SELECT * from q4_results limit 10;
++------------------+---------------------+
+| startingairport  | destinationairport  |
++------------------+---------------------+
+| LAX              | BOS                 |
+| LAX              | JFK                 |
+| LAX              | DEN                 |
+| LAX              | LGA                 |
+| LAX              | BOS                 |
+| LAX              | ATL                 |
+| LAX              | JFK                 |
+| LAX              | SFO                 |
+| LAX              | PHL                 |
+| LAX              | PHL                 |
++------------------+---------------------+
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> 
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> 

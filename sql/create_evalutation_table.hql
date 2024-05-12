@@ -1,0 +1,14 @@
+USE team25_projectdb;
+
+DROP TABLE IF EXISTS evaluation;
+
+CREATE EXTERNAL TABLE IF NOT EXISTS evaluation (
+    Model_ID STRING,
+    RMSE DOUBLE,
+    R2 DOUBLE
+)
+ROW FORMAT DELIMITED
+FIELDS TERMINATED BY ','
+STORED AS TEXTFILE;
+LOAD DATA INPATH 'project/output/evaluation.csv/part-00000-786a6e67-b4d3-400c-a0d0-2d773b17ed21-c000.csv' INTO TABLE evaluation;
+

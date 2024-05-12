@@ -1,0 +1,32 @@
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> USE team25_projectdb;
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> 
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> 
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> DROP TABLE IF EXISTS q2_results;
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> CREATE EXTERNAL TABLE q2_results( 
+. . . . . . . . . . . . . . . . . . . . . . .> isbasiceconomy BOOLEAN,
+. . . . . . . . . . . . . . . . . . . . . . .> isrefundable BOOLEAN, isnonstop B OOLEAN, basefare decimal(10,2))
+. . . . . . . . . . . . . . . . . . . . . . .> ROW FORMAT DELIMITED FIELDS TERMI NATED BY ','
+. . . . . . . . . . . . . . . . . . . . . . .> location 'project/hive/warehouse/ q2';
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> 
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> SET hive.resultset.use.unique.col umn.names = false;
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> 
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> INSERT INTO q2_results
+. . . . . . . . . . . . . . . . . . . . . . .> SELECT isbasiceconomy, isrefundab le, isnonstop, basefare from flights_opt;
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> 
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> SELECT * from q2_results limit 10 ;
++-----------------+---------------+------------+-----------+
+| isbasiceconomy  | isrefundable  | isnonstop  | basefare  |
++-----------------+---------------+------------+-----------+
+| false           | false         | false      | 571.16    |
+| false           | false         | false      | 539.53    |
+| false           | false         | false      | 152.56    |
+| false           | false         | false      | 394.42    |
+| false           | false         | false      | 373.97    |
+| false           | false         | true       | 468.84    |
+| false           | false         | true       | 380.47    |
+| false           | false         | true       | 155.35    |
+| false           | false         | false      | 480.00    |
+| false           | false         | false      | 480.00    |
++-----------------+---------------+------------+-----------+
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> 
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> 

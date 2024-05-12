@@ -1,0 +1,39 @@
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> USE team25_projectdb;
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> 
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> -- Drop the results table if it exists
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> DROP TABLE IF EXISTS q3_results;
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> 
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> -- Create a new external table to store the results
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> CREATE EXTERNAL TABLE q3_results(
+. . . . . . . . . . . . . . . . . . . . . . .>     elapseddays INT,
+. . . . . . . . . . . . . . . . . . . . . . .>     isnonstop BOOLEAN
+. . . . . . . . . . . . . . . . . . . . . . .> )
+. . . . . . . . . . . . . . . . . . . . . . .> ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
+. . . . . . . . . . . . . . . . . . . . . . .> LOCATION 'project/hive/warehouse/q3';
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> 
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> -- Configure Hive to use non-unique column names in result set
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> SET hive.resultset.use.unique.column.names = false;
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> 
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> -- Insert data into the results table
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> INSERT INTO q3_results
+. . . . . . . . . . . . . . . . . . . . . . .> SELECT elapseddays, isnonstop FROM flights_opt WHERE elapseddays is not n ull and isnonstop is not null;
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> 
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> -- Retrieve the first 10 entries from the results table to check
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> SELECT * FROM q3_results LIMIT 10;
++--------------+------------+
+| elapseddays  | isnonstop  |
++--------------+------------+
+| NULL         | NULL       |
+| NULL         | NULL       |
+| NULL         | NULL       |
+| NULL         | NULL       |
+| NULL         | NULL       |
+| 1943         | NULL       |
+| 2458         | NULL       |
+| 364          | NULL       |
+| NULL         | NULL       |
+| NULL         | NULL       |
++--------------+------------+
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> 
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> 
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> 
